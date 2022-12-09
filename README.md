@@ -1,5 +1,5 @@
 # Udacity_Nanodegree
-Projects:
+## Projects:
 - Finding Donors
 - Image Classifier
 - Creating Customer Segments
