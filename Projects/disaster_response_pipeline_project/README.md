@@ -27,22 +27,22 @@ disaster_response_pipeline_project
 ├── app
 │   ├── templates
 │   │   │── go.html
-│   │   │── master.html
-│   │── run.py
+│   │   │── master.html -> file for app
+│   │── run.py -> main file to run the app
 │── assets
 |   |── app_data_vis.png
 |   |── app_ml_ex.png
 |   |── model's_performance.png
 |── data
-|   |── disaster_categories.csv
-|   |── disaster_messages.csv
-|   |── DisasterResponse.db
-|   |── process_data.py
+|   |── disaster_categories.csv -> categories dataset
+|   |── disaster_messages.csv -> messages dataset
+|   |── DisasterResponse.db -> stored database
+|   |── process_data.py -> file for  ETL Pipeline
 |── models
-|   |── classifier.pkl
-|   |── train_classifier.py
-|── ETL Pipeline Preparation.ipynb
-|── ML Pipeline Preparation.ipynb
+|   |── classifier.pkl -> stored model
+|   |── train_classifier.py -> file for ML Pipeline
+|── ETL Pipeline Preparation.ipynb -> data analysis, cleaning, merging, saving
+|── ML Pipeline Preparation.ipynb -> data splititng, tried `RandomForest`, and `AdaBoost` , tuning, storing the model
 ```
 ### Project Components:
 #### 1. ETL Pipeline : data cleaning pipleine in `process_data.py`
