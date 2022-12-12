@@ -1,8 +1,10 @@
 # Disaster Response Pipeline Project
+`Disaster Response Pipeline Project` is a web app classifier of a real messages that sent during the disaster events. In this app there are 3 subparts, `ETL Pipeline` ,cleans, merge, and store the data, `ML Pipline` , trains, tune the classifier, and evaluate on the test set, `Flask Web App` interface between user and the code, visaualisation of the dataset.
 ## Overview
 - [Instructions](#instructions-to-run-the-app)
 - [Project Structure](#project-structure)
 - [Project Components](#project-components)
+- [Acknowledgements](#acknowledgements)
 
 ### Instructions to run the app:
 1. Clone this repository using the command `git clone ...` .
@@ -67,7 +69,12 @@ disaster_response_pipeline_project
 <p align="center">
   <img src="assets/app__data_vis.png" width="95%">
 </p>
+
 - the example of the `classification` message showing classified categories in the app  : 
 <p align="center">
   <img src="assets/app_ml_ex.jpg" width="95%">
 </p>
+
+### Acknowledgements:
+- [Udacity](https://www.udacity.com/), for providing the `App-templates`.
+- [Appen](https://appen.com/), for providing the dataset.
