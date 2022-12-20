@@ -8,17 +8,40 @@
 ### Instructions to setup:
 1. Clone this repository using the command `git clone ...` .
 2. Install the required packages using this command `pip install -r requirements.txt`.
-3. Run the following commands in the project's root directory to set up your database and model.
+3. First, let's download the pretrained model, using this command in CLI;
 
-    - To run ETL pipeline that cleans data and stores in database
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-    - To run ML pipeline that trains classifier and saves
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+	`wget http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz`
+	- Unzip the tar file:
+	
+		`tar -xvzf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz`
+	- Remove the tar file:
+	
+		`rm -rf ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz`
+4. Edit the config files to change the location of the training and validation files, as well as the location of the label_map file, pretrained weights
 
-4. Run the following command in the app's directory to run your web app.
-    `python run.py`
+	`python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 2 --checkpoint /home/workspace/experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map /home/workspace/experiments/label_map.pbtxt`
+	- A new config file called `pipeline_new.config` will be created in the `/home/workspace/ directory`. Move this file to the `/home/workspace/experiments/reference/` directory.
+5. **Launch the training process** with newly generated `pipeline_new.config` :
 
-5. Go to http://0.0.0.0:3001/
+	`python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config`
+	
+	- To monitor the training, you can launch a tensorboard instance by running:
+	
+		`python -m tensorboard.main --logdir experiments/reference/`
+	
+6. **Launch the evaluation process** with newly generated `pipeline_new.config` :
+
+	`python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/`
+ 
+
+7. **Creating an Inference video** 
+	- Export the trained model: 
+	
+		`python experiments/exporter_main_v2.py --input_type image_tensor --pipeline_config_path experiments/reference/pipeline_new.config --trained_checkpoint_dir experiments/reference/ --output_directory experiments/reference/exported/`
+	- Create a video of your model's inferences:
+	
+		`python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path data/test/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
+`
 
 ### Project Structure: 
 ```
