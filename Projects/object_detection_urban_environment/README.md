@@ -1,4 +1,65 @@
 # Object Detection in an Urban Environment
+## Overview
+- [Instructions](#instructions-to-setup)
+- [Project Structure](#project-structure)
+- [Project Components](#project-components)
+- [Acknowledgements](#acknowledgements)
+
+### Instructions to setup:
+1. Clone this repository using the command `git clone ...` .
+2. Install the required packages using this command `pip install -r requirements.txt`.
+3. Run the following commands in the project's root directory to set up your database and model.
+
+    - To run ETL pipeline that cleans data and stores in database
+        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+    - To run ML pipeline that trains classifier and saves
+        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+
+4. Run the following command in the app's directory to run your web app.
+    `python run.py`
+
+5. Go to http://0.0.0.0:3001/
+
+### Project Structure: 
+```
+object_detection_urban_environment
+├── data
+│   ├── test -> contain the test data
+│   │   │── segment...
+│   │── train -> contain the training data 
+|   |   │── segment...
+│   │── val -> contain the val data 
+|   |   │── segment...
+│── experiments
+|   |── reference -> reference experiment (given config settings)
+|   |	|── train 
+|   |	|	|── events.out.tfevents -> files for TensorBoard
+|   |	|── pipeline_new.config -> generated new config via `edit_config.py`
+|   |── experiment_1 -> main experiment with improved performance
+|   |	|── train 
+|   |	|	|── events.out.tfevents -> files to plot the losses on  TensorBoard
+|   |	|── pipeline_new.config -> generated new config via `edit_config.py`, with new parameters, data augmentations
+|   |   |── eval
+|   |   |   |──events.out.tfevents -> files to plot the losses on  TensorBoard
+|   |   |── exported ->
+|   |── pretrained_model
+|   |   |── ssd_resnet50....
+|   |   |── checkpoint
+|   |── exporter_main_v2.py -> to create inferecne model, export the trained model
+|   |── model_main_tf2.py -> to launch the training
+|   |── label_map.pbtext
+|── Exploratory Data Analysis.ipynb -> data analysis of the dataset, and visualisation of training images
+|── Explore augmentations.ipynb -> script to visualize the augmentations
+|── animation.gif
+|── edit_config.py -> edit the config files to change the location of the training and validation files
+|── filenames.txt
+|── inference_video.py -> create a video of the model's inference
+|── label_map.pbtxt
+|── launch_jupyter.sh
+|── pipeline.config
+|── requirements.txt -> contains the required packages
+|── utils.py 
+```
 
 ## Data
 
