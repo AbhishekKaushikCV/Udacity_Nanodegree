@@ -2,7 +2,9 @@
 ## Overview
 - [Instructions](#instructions-to-setup)
 - [Project Structure](#project-structure)
-- [Project Components](#project-components)
+- [Experimental Results](#experimental-results)
+	- [Results Reference](#results-reference)
+	- [Results Experiment_1](#results-experiment_1)
 - [Acknowledgements](#acknowledgements)
 
 ### Instructions to setup:
@@ -83,6 +85,17 @@ object_detection_urban_environment
 |── requirements.txt -> contains the required packages
 |── utils.py 
 ```
+### Experimental Results:
+#### Results Reference:
+
+- Different losses on TensorBoard with the given `CONFIG FILE`
+
+<p align="center">
+  <img src="assets/reference_loss1.png" width="95%">
+</p>
+
+
+
 
 ## Data
 
