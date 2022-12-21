@@ -4,7 +4,7 @@
 - [Project Structure](#project-structure)
 - [Experimental Results](#experimental-results)
 	- [Results Reference](#results-reference)
-	- [Results Experiment_1](#results-experiment_1)
+	- [Results Experiment](#results-experiment-with-improved-performance)
 - [Acknowledgements](#acknowledgements)
 
 ### Instructions to setup:
@@ -88,11 +88,44 @@ object_detection_urban_environment
 ### Experimental Results:
 #### Results Reference:
 
-- Different losses on TensorBoard with the given `CONFIG FILE`
+- Different losses on TensorBoard with the given `CONFIG FILE`:
 
 <p align="center">
-  <img src="assets/reference_loss1.png" width="95%">
+  <img src="assets/reference_loss.jpg" width="95%">
 </p>
+
+- Evalutaion result on validation :
+
+<p align="center">
+  <img src="assets/reference_evaluation.png" width="95%">
+</p>
+
+#### Results Experiment with improved performance:
+
+- Example of training images to the model:
+
+<p align="center">
+  <img src="assets/train_images.jpg" width="95%">
+</p>
+
+- Different losses on TensorBoard with the `Improved CONFIG FILE` :
+
+<p align="center">
+  <img src="assets/experiment_1_loss.jpg" width="95%">
+</p>
+
+- Evalutaion result on validation :
+
+<p align="center">
+  <img src="assets/EVALUATION_RESULT.png" width="95%">
+</p>
+
+-  Example of evaluation images to the model:
+
+<p align="center">
+  <img src="assets/EVALUATION_IMAGE.png" width="95%">
+</p>
+
 
 
 
