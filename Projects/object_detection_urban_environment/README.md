@@ -1,11 +1,12 @@
 # Object Detection in an Urban Environment
+`Object Detection in Urban Environment` is a project to detect the objects in a real world scenario. `Object Detection` is the important component to achieve the fully autonomous driving vehicle. In this project we used the [Waymo Open Dataset](https://waymo.com/open/) to train the model `Single Stage Detector` for the detection of `Car` , `Pedestrian` , and `Cyclist` . 
 ## Overview
 - [Instructions](#instructions-to-setup)
 - [Project Structure](#project-structure)
 - [Experimental Results](#experimental-results)
 	- [Results Reference](#results-reference)
-	- [Results Experiment](#results-experiment-with-improved-performance)
-- [Acknowledgements](#acknowledgements)
+	- [Results Experiment with Improved Performance](#results-experiment-with-improved-performance)
+- [Conclusion](#conclusion)
 
 ### Instructions to setup:
 1. Clone this repository using the command `git clone ...` .
@@ -100,7 +101,7 @@ object_detection_urban_environment
   <img src="assets/reference_evaluation.png" width="95%">
 </p>
 
-#### Results Experiment with improved performance:
+#### Results Experiment with Improved Performance:
 
 - Example of training images to the model:
 
@@ -126,7 +127,19 @@ object_detection_urban_environment
   <img src="assets/EVALUATION_IMAGE.png" width="95%">
 </p>
 
-
+### Conclusion:
+- **Reference Experiment**:
+	- The `classification loss` is around `0.6` , `localisation loss` is around `0.75` , and the combined `total loss` is around `24, 25` . 
+	- on the validation the `average recall` is `0.136`, `average precision` is around `0.136` , `total loss` is around `24.69`
+	- with this configuration the model was not able to detect the objects on the test images
+	
+- **Experiment_1 Improved Performance**:
+	- The `classification loss` is decreased from `0.6` to `0.20` , `localisation loss` is decreased form `0.75` to `0.35` , and the combined `total loss` is decreased from `24` to `0.65` . 
+	- on the validation the `average recall` is increased from `0.136` to `0.512`, `average precision` is increased from `0.136` to `0.430` , `total loss` is decreased from `24.69` to 0.96
+	- with this new improved configuration the model was able to detect the objects on the test images `example`: 
+	<p align="center">
+  <img src="canimation.gif" width="95%">
+</p>
 
 
 
